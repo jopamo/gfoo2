@@ -2,6 +2,8 @@
 Ion Flux Relabeling
 */
 
+package std;
+
 import java.util.Arrays;
 
 public class Solution {
