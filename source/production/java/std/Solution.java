@@ -67,7 +67,7 @@ public class Solution {
       nodeParent = x + (int) (Math.pow(2, giveHeight(x)));
 
     /* if not:
-     * y = integer whole of log2(node) floor(log2(node))
+     * y = integer whole of log2(node)
      * z = (2^y) - 1
      * then check if (node - z) + 1 is power of 2
      */
