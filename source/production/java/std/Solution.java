@@ -20,6 +20,7 @@ When a node's index plus one is not a power of two, it means that node is
 somewhere on the right subtree of its parent. In this case, you need to
 calculate the height of the node and adjust the index accordingly.
 
+---------------------------------------------------------------------------------------------
 The code calculates the height of such a node using the giveHeight function.
 It iteratively subtracts values 'z' from the index until 'i+1' becomes a
 power of two. The value 'z' is calculated as '(2^y) - 1', where 'y' is the
@@ -29,6 +30,47 @@ that 'i+1' transitions from a non-power of two to the next power of two.
 Once you have found the height and adjusted the index accordingly, you can
 calculate the parent node using the formula 'i + 2^height'.
 
+Consider a binary tree with nodes indexed from 1 to N, where N is the
+total number of nodes. The root node is at index 1, and each node has
+two children at indices 2i and 2i+1, where 'i' is the index of the parent
+node.
+
+Now, let's say we have a node at index 'x' (1-based index) in the binary
+tree, and 'x+1' is not a power of two. We want to find its parent node.
+
+Determine the Height of the Node:
+
+To find the parent node, we first need to determine the height of the
+node. The height of a node is defined as the number of edges in the
+longest path from that node to a leaf node. We can calculate the height
+of the node using the giveHeight function in your code.
+
+The giveHeight function works as follows:
+
+If 'x+1' is a power of two, it directly calculates the height using
+the formula: height = log2(x+1). This is because the binary tree
+has a regular structure, and you can calculate the height directly
+when the node's index plus one is a power of two.
+
+If 'x+1' is not a power of two, it enters a loop and subtracts
+values 'z' from 'x' until 'x+1' becomes a power of two. The value
+'z' is calculated as '(2^y) - 1', where 'y' is the largest integer
+such that '2^y' is less than or equal to 'x+1'. This process continues
+until 'x+1' becomes a power of two. At this point, 'x' has reached
+the level just above the leftmost leaf nodes, and the height is known.
+
+Calculate the Parent Node:
+
+Once we know the height of the node, we can calculate its parent node
+using the formula: parent = x + 2^height.
+
+Here, 'x' represents the current node's index.
+
+'height' is the height of the node we calculated earlier using the
+giveHeight function.
+
+Adding '2^height' to 'x' effectively moves 'x' up the tree to its
+parent node, which is 'height' levels higher.
 
 */
 
