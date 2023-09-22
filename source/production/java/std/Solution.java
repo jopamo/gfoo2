@@ -1,5 +1,35 @@
 /*
 Ion Flux Relabeling
+
+Power of Two Nodes:
+
+If a node's index (1-based) plus one is a power of two, it is guaranteed
+to be the left child of its parent. This is because binary trees have the
+property that each node with index 'i' has children at indices '2i' and '2i+1'.
+When 'i+1' is a power of two, '2i+1' is the next power of two, which means 'i'
+is the left child of its parent.
+
+To illustrate, consider an example where 'i+1' is a power of two
+(e.g., 1, 2, 4, 8, etc.). In these cases, the binary representation of 'i' has
+only one '1' bit, and 'i+1' has one more '1' bit, which means 'i' is the left
+child of its parent.
+
+Non-Power of Two Nodes:
+
+When a node's index plus one is not a power of two, it means that node is
+somewhere on the right subtree of its parent. In this case, you need to
+calculate the height of the node and adjust the index accordingly.
+
+The code calculates the height of such a node using the giveHeight function.
+It iteratively subtracts values 'z' from the index until 'i+1' becomes a
+power of two. The value 'z' is calculated as '(2^y) - 1', where 'y' is the
+largest integer such that '2^y' is less than or equal to 'i+1'. This ensures
+that 'i+1' transitions from a non-power of two to the next power of two.
+
+Once you have found the height and adjusted the index accordingly, you can
+calculate the parent node using the formula 'i + 2^height'.
+
+
 */
 
 package std;
